@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathing / Pulse Effect CSS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #00b4db, #0083b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a8e6cf;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .example-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .example-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .example-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #80deea;
+            text-align: center;
+        }
+        
+        .example-desc {
+            font-size: 0.95rem;
+            color: #ccc;
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.5;
+        }
+        
+        .demo-box {
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* Breathing Effect 1: Simple Pulse */
+        .breathing-1 {
+            background: linear-gradient(135deg, #00b4db, #0083b0);
+            animation: breathe1 3s infinite ease-in-out;
+            box-shadow: 0 0 20px rgba(0, 180, 219, 0.5);
+        }
+        
+        @keyframes breathe1 {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        /* Breathing Effect 2: Pulse with Shadow */
+        .breathing-2 {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            animation: breathe2 4s infinite ease-in-out;
+        }
+        
+        @keyframes breathe2 {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(255, 107, 107, 0.7);
+            }
+            50% { 
+                transform: scale(1.15);
+                box-shadow: 0 0 25px rgba(255, 107, 107, 0.9);
+            }
+        }
+        
+        /* Breathing Effect 3: Slow Breath with Opacity */
+        .breathing-3 {
+            background: linear-gradient(135deg, #56ab2f, #a8e6cf);
+            animation: breathe3 5s infinite ease-in-out;
+        }
+        
+        @keyframes breathe3 {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.9;
+            }
+            50% { 
+                transform: scale(1.08);
+                opacity: 1;
+            }
+        }
+        
+        /* Breathing Effect 4: Double Pulse */
+        .breathing-4 {
+            background: linear-gradient(135deg, #8e2de2, #4a00e0);
+            animation: breathe4 3s infinite ease-in-out;
+        }
+        
+        @keyframes breathe4 {
+            0%, 100% { transform: scale(1); }
+            33% { transform: scale(1.1); }
+            66% { transform: scale(1.05); }
+        }
+        
+        /* Breathing Effect 5: Heartbeat */
+        .breathing-5 {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            animation: heartbeat 1.5s infinite ease-in-out;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.15); }
+            40% { transform: scale(1); }
+        }
+        
+        /* Breathing Effect 6: Glowing Pulse */
+        .breathing-6 {
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            animation: glowPulse 2.5s infinite alternate;
+        }
+        
+        @keyframes glowPulse {
+            0% { 
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
+            }
+            100% { 
+                transform: scale(1.12);
+                box-shadow: 0 0 30px rgba(0, 210, 255, 0.9);
+            }
+        }
+        
+        .code-container {
+            background: #1a1a2e;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .code-title {
+            font-size: 1.3rem;
+            color: #80deea;
+        }
+        
+        .copy-btn {
+            background: #0083b0;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #00b4db;
+        }
+        
+        .code-block {
+            background: #0f0f1e;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #f8f8f2;
+        }
+        
+        .code-comment {
+            color: #6a9955;
+        }
+        
+        .code-selector {
+            color: #ff79c6;
+        }
+        
+        .code-property {
+            color: #50fa7b;
+        }
+        
+        .code-value {
+            color: #f1fa8c;
+        }
+        
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #a8e6cf;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        @media (max-width: 768px) {
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Breathing / Pulse Effect ด้วย CSS</h1>
+            <p class="subtitle">เอฟเฟกต์การหายใจหรือชีพจรสามารถสร้างได้ด้วย CSS animation โดยใช้ keyframes ในการควบคุมการขยายและหดตัวขององค์ประกอบ</p>
+        </header>
+        
+        <div class="examples-grid">
+            <div class="example-card">
+                <h2 class="example-title">1. พัลส์พื้นฐาน</h2>
+                <p class="example-desc">การขยายและหดตัวอย่างนุ่มนวลในวงจรไม่สิ้นสุด</p>
+                <div class="demo-box breathing-1">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <p class="example-desc">ใช้ animation: breathe1 3s infinite ease-in-out;</p>
+            </div>
+            
+            <div class="example-card">
+                <h2 class="example-title">2. พัลส์กับเงา</h2>
+                <p class="example-desc">เพิ่มเอฟเฟกต์เงาให้ดูมีมิติมากขึ้น</p>
+                <div class="demo-box breathing-2">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <p class="example-desc">ปรับขนาดและเงาพร้อมกันใน animation</p>
+            </div>
+            
+            <div class="example-card">
+                <h2 class="example-title">3. การหายใจช้าๆ</h2>
+                <p class="example-desc">เปลี่ยนความโปร่งใสพร้อมกับขนาด</p>
+                <div class="demo-box breathing-3">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <p class="example-desc">วงจร 5 วินาที ช้าและสงบ</p>
+            </div>
+            
+            <div class="example-card">
+                <h2 class="example-title">4. พัลส์คู่</h2>
+                <p class="example-desc">ขยายสองครั้งในหนึ่งวงจร</p>
+                <div class="demo-box breathing-4">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <p class="example-desc">ใช้ keyframes 3 จุดสำหรับเอฟเฟกต์พิเศษ</p>
+            </div>
+            
+            <div class="example-card">
+                <h2 class="example-title">5. จังหวะหัวใจ</h2>
+                <p class="example-desc">เลียนแบบการเต้นของหัวใจ</p>
+                <div class="demo-box breathing-5">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <p class="example-desc">สั้นและกระชับเหมือนจังหวะการเต้นหัวใจ</p>
+            </div>
+            
+            <div class="example-card">
+                <h2 class="example-title">6. พัลส์เรืองแสง</h2>
+                <p class="example-desc">เพิ่มเอฟเฟกต์แสงเรืองรอบวัตถุ</p>
+                <div class="demo-box breathing-6">
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="example-desc">ใช้ alternate animation สำหรับเอฟเฟกต์ต่อเนื่อง</p>
+            </div>
+        </div>
+        
+        <div class="code-container">
+            <div class="code-header">
+                <h2 class="code-title">โค้ด CSS สำหรับ Breathing Effect</h2>
+                <button class="copy-btn" id="copyBtn">คัดลอกโค้ด</button>
+            </div>
+            <div class="code-block" id="codeBlock">
+                <span class="code-comment">/* Breathing Effect 1: Simple Pulse */</span><br>
+                .<span class="code-selector">breathing-element</span> {<br>
+                &nbsp;&nbsp;<span class="code-property">animation</span>: <span class="code-value">breathe 3s infinite ease-in-out</span>;<br>
+                }<br><br>
+                
+                @<span class="code-selector">keyframes</span> <span class="code-value">breathe</span> {<br>
+                &nbsp;&nbsp;0<span class="code-selector">%</span>, 100<span class="code-selector">%</span> { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-property">transform</span>: <span class="code-value">scale(1)</span>;<br>
+                &nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;50<span class="code-selector">%</span> { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-property">transform</span>: <span class="code-value">scale(1.1)</span>;<br>
+                &nbsp;&nbsp;}<br>
+                }<br><br>
+                
+                <span class="code-comment">/* Breathing Effect 2: Pulse with Shadow */</span><br>
+                @<span class="code-selector">keyframes</span> <span class="code-value">breatheWithShadow</span> {<br>
+                &nbsp;&nbsp;0<span class="code-selector">%</span>, 100<span class="code-selector">%</span> { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-property">transform</span>: <span class="code-value">scale(1)</span>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-property">box-shadow</span>: <span class="code-value">0 0 10px rgba(255, 107, 107, 0.7)</span>;<br>
+                &nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;50<span class="code-selector">%</span> { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-property">transform</span>: <span class="code-value">scale(1.15)</span>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-property">box-shadow</span>: <span class="code-value">0 0 25px rgba(255, 107, 107, 0.9)</span>;<br>
+                &nbsp;&nbsp;}<br>
+                }<br><br>
+                
+                <span class="code-comment">/* Breathing Effect 3: Heartbeat */</span><br>
+                @<span class="code-selector">keyframes</span> <span class="code-value">heartbeat</span> {<br>
+                &nbsp;&nbsp;0<span class="code-selector">%</span>, 100<span class="code-selector">%</span> { <span class="code-property">transform</span>: <span class="code-value">scale(1)</span>; }<br>
+                &nbsp;&nbsp;10<span class="code-selector">%</span> { <span class="code-property">transform</span>: <span class="code-value">scale(1.1)</span>; }<br>
+                &nbsp;&nbsp;20<span class="code-selector">%</span> { <span class="code-property">transform</span>: <span class="code-value">scale(1)</span>; }<br>
+                &nbsp;&nbsp;30<span class="code-selector">%</span> { <span class="code-property">transform</span>: <span class="code-value">scale(1.15)</span>; }<br>
+                &nbsp;&nbsp;40<span class="code-selector">%</span> { <span class="code-property">transform</span>: <span class="code-value">scale(1)</span>; }<br>
+                }<br>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Breathing / Pulse Effects with CSS | สร้างด้วย HTML, CSS และ JavaScript</p>
+            <p style="margin-top: 8px;">ปรับแต่งค่า animation-duration, transform-scale และอื่นๆ ตามต้องการ</p>
+        </footer>
+    </div>
+
+    <script>
+        // คัดลอกโค้ด
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            const codeText = document.getElementById('codeBlock').innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const originalText = this.textContent;
+                this.textContent = 'คัดลอกแล้ว!';
+                setTimeout(() => {
+                    this.textContent = originalText;
+                }, 2000);
+            });
+        });
+        
+        // ทำให้กล่องตัวอย่างทั้งหมดมีเอฟเฟกต์ breathing เมื่อโหลดหน้า
+        document.addEventListener('DOMContentLoaded', function() {
+            const demoBoxes = document.querySelectorAll('.demo-box');
+            demoBoxes.forEach(box => {
+                // เพิ่มเอฟเฟกต์เมื่อคลิก
+                box.addEventListener('click', function() {
+                    this.style.animationPlayState = this.style.animationPlayState === 'paused' ? 'running' : 'paused';
+                    const icon = this.querySelector('i');
+                    if (this.style.animationPlayState === 'paused') {
+                        icon.classList.add('fa-pause');
+                        icon.classList.remove('fa-play');
+                    } else {
+                        icon.classList.add('fa-play');
+                        icon.classList.remove('fa-pause');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
